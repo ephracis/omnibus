@@ -233,6 +233,7 @@ module Omnibus
         copy_file(bff, File.join(Config.package_dir, create_bff_file_name))
       end
 
+    ensure
       # chown back to original user's uid/gid so cleanup works correctly
       shellout!("sudo chown -Rh #{original_uid}:#{original_gid} #{staging_dir}")
     end
